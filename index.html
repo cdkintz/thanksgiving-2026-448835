@@ -79,6 +79,28 @@ summary .who { color: var(--muted); font-size: .9rem; white-space: nowrap; min-w
 .body h4 { margin: 16px 0 6px; font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
 .body ul, .body ol { margin: 0; padding-left: 20px; }
 .body li { margin: 4px 0; }
+.recipes-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.print-btn { font: 600 .9rem Inter, sans-serif; color: var(--accent); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; cursor: pointer; }
+.print-title { display: none; }
+@media print {
+  @page { size: letter; margin: 0.4in; }
+  :root, :root:not([data-theme="light"]) { --bg: #fff; --surface: #fff; --ink: #000; --muted: #444; --line: #ccc; --accent: #000; }
+  body { font-size: 8.5pt; line-height: 1.3; background: #fff; }
+  main { max-width: none; padding: 0; }
+  main > *:not(#recipes-section) { display: none !important; }
+  .print-btn, nav, summary::after { display: none !important; }
+  #recipes-section { display: block !important; columns: 2; column-gap: 0.3in; }
+  #recipes-section .recipes-head { display: none; }
+  .print-title { display: block; column-span: all; font-weight: 600; font-size: 11pt; margin: 0 0 8px; }
+  details { break-inside: avoid; border: 0; border-top: 1px solid #ccc; border-radius: 0; margin: 0 0 6px; }
+  summary { padding: 6px 0 2px; }
+  summary h3 { font-size: 10.5pt; }
+  .body { padding: 0 0 4px; }
+  .body h4 { margin: 6px 0 2px; font-size: 7.5pt; }
+  .body p { margin: 2px 0; }
+  .body li { margin: 1px 0; }
+  a { color: #000; text-decoration: none; }
+}
 footer { color: var(--muted); font-size: .85rem; margin-top: 56px; }
 </style>
 </head>
@@ -116,7 +138,7 @@ footer { color: var(--muted); font-size: .85rem; margin-top: 56px; }
         <tr><td>Cranberry sauce</td><td>Cory</td><td><span class="tag no">No dairy</span></td><td></td></tr>
         <tr><td><a href="#r-veg">Roasted Brussels sprouts and green beans</a></td><td>Rachel</td><td><span class="tag no">No dairy</span></td><td></td></tr>
         <tr><td><a href="#r-salad">Winter green salad</a></td><td class="open">Open</td><td><span class="tag no">No dairy</span></td><td>Up for grabs</td></tr>
-        <tr><td><a href="#r-bread">Bread</a></td><td>Michael</td><td><span class="tag no">No dairy</span></td><td></td></tr>
+        <tr><td>Bread</td><td>Michael</td><td><span class="tag no">No dairy</span></td><td></td></tr>
         <tr><td>Pies</td><td>Natalie and Robin</td><td><span class="tag maybe">May contain dairy</span></td><td></td></tr>
         <tr><td>Vanilla ice cream</td><td>Cory</td><td><span class="tag yes">Contains dairy</span></td><td></td></tr>
         <tr><td>Wine</td><td>Susanna</td><td><span class="tag no">No dairy</span></td><td></td></tr>
@@ -154,7 +176,12 @@ footer { color: var(--muted); font-size: .85rem; margin-top: 56px; }
       </tbody>
     </table>
   </div>
-  <h2 id="recipes">Recipes</h2>
+  <section id="recipes-section">
+  <div class="recipes-head">
+    <h2 id="recipes">Recipes</h2>
+    <button type="button" class="print-btn" onclick="window.print()">Print recipes</button>
+  </div>
+  <p class="print-title">Thanksgiving 2026 recipes · Thursday, November 26 · dinner at 5:00 pm</p>
 
   <details id="r-turkey">
     <summary><h3>Spatchcocked Traeger turkey</h3><span class="who">Cory</span></summary>
@@ -266,14 +293,20 @@ footer { color: var(--muted); font-size: .85rem; margin-top: 56px; }
     </div>
   </details>
 
-  <details id="r-bread">
-    <summary><h3>Bread</h3><span class="who">Michael</span></summary>
-    <div class="body">
-      <p>2 to 3 large loaves or about 30 rolls. Dairy-free and nut-free, including no nut toppings or nut flours. Michael is also bringing the challah for the kosher stuffing.</p>
-    </div>
-  </details>
+  </section>
 
   <footer>Questions or changes? Text Cory.</footer>
 </main>
+<script>
+let wasOpen = [];
+addEventListener('beforeprint', () => {
+  const all = [...document.querySelectorAll('#recipes-section details')];
+  wasOpen = all.map(d => d.open);
+  all.forEach(d => d.open = true);
+});
+addEventListener('afterprint', () => {
+  document.querySelectorAll('#recipes-section details').forEach((d, i) => d.open = wasOpen[i]);
+});
+</script>
 </body>
 </html>
