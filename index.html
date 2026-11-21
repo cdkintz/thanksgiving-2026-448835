@@ -113,6 +113,9 @@ summary .who { color: var(--muted); font-size: .9rem; white-space: nowrap; min-w
   .body li { margin: 1px 0; }
   a { color: #000; text-decoration: none; }
 }
+#guest-table td.hh { font-weight: 600; }
+#guest-table td { border-bottom: 0; }
+#guest-table tr.hh-start td { border-top: 1px solid var(--line); }
 footer { color: var(--muted); font-size: .85rem; margin-top: 56px; }
 </style>
 </head>
@@ -161,30 +164,30 @@ footer { color: var(--muted); font-size: .85rem; margin-top: 56px; }
 
   <h2 id="guests">Guests</h2>
   <div class="table-wrap">
-    <table>
-      <thead><tr><th>#</th><th>Guest</th><th>Bringing</th></tr></thead>
+    <table id="guest-table">
+      <thead><tr><th>#</th><th>Household</th><th>Guest</th><th>Bringing</th></tr></thead>
       <tbody>
-        <tr><td>1</td><td>Cory</td><td>Turkey, gravy, both stuffings, mashed potatoes, cranberry sauce, ice cream, drinks</td></tr>
-        <tr><td>2</td><td>Rachel</td><td>Roasted Brussels sprouts and green beans</td></tr>
-        <tr><td>3</td><td>Michael</td><td>Bread and challah</td></tr>
-        <tr><td>4</td><td>Natalie</td><td>Pies</td></tr>
-        <tr><td>5</td><td>Robin</td><td>Pies</td></tr>
-        <tr><td>6</td><td>Susanna</td><td>Wine</td></tr>
-        <tr><td>7</td><td>Susan</td><td class="open">Open</td></tr>
-        <tr><td>8</td><td>Lauren</td><td class="open">Open</td></tr>
-        <tr><td>9</td><td>Abbie</td><td class="open">Open</td></tr>
-        <tr><td>10</td><td>David</td><td class="open">Open</td></tr>
-        <tr><td>11</td><td>Shira</td><td></td></tr>
-        <tr><td>12</td><td>Lilly</td><td></td></tr>
-        <tr><td>13</td><td>Lucas</td><td></td></tr>
-        <tr><td>14</td><td>Liam</td><td></td></tr>
-        <tr><td>15</td><td>Hayden</td><td></td></tr>
-        <tr><td>16</td><td>Noah</td><td></td></tr>
-        <tr><td>17</td><td>Matt</td><td></td></tr>
-        <tr><td>18</td><td>Gabe</td><td></td></tr>
-        <tr><td>19</td><td>Lisa</td><td></td></tr>
-        <tr><td>20</td><td>Mike (AKA Fish)</td><td></td></tr>
-        <tr><td>21</td><td>Kayla</td><td></td></tr>
+        <tr class="hh-start"><td>1</td><td class="hh">Cory and Kayla</td><td>Cory</td><td>Turkey, gravy, both stuffings, mashed potatoes, cranberry sauce, ice cream, drinks</td></tr>
+        <tr><td>2</td><td class="hh"></td><td>Kayla</td><td></td></tr>
+        <tr class="hh-start"><td>3</td><td class="hh">Rachel and Gabriel</td><td>Rachel</td><td>Roasted Brussels sprouts and green beans</td></tr>
+        <tr><td>4</td><td class="hh"></td><td>Gabriel</td><td></td></tr>
+        <tr class="hh-start"><td>5</td><td class="hh">Matt</td><td>Matt</td><td></td></tr>
+        <tr class="hh-start"><td>6</td><td class="hh">Natalie and Robin</td><td>Natalie</td><td>Pies</td></tr>
+        <tr><td>7</td><td class="hh"></td><td>Robin</td><td>Pies</td></tr>
+        <tr class="hh-start"><td>8</td><td class="hh">Lisa and Michael</td><td>Lisa</td><td></td></tr>
+        <tr><td>9</td><td class="hh"></td><td>Michael</td><td>Bread and challah</td></tr>
+        <tr class="hh-start"><td>10</td><td class="hh">Susanna and Mike Fisher</td><td>Susanna</td><td>Wine</td></tr>
+        <tr><td>11</td><td class="hh"></td><td>Mike Fisher (Fish)</td><td></td></tr>
+        <tr class="hh-start"><td>12</td><td class="hh">David and Abbie</td><td>David</td><td class="open">Open</td></tr>
+        <tr><td>13</td><td class="hh"></td><td>Abbie</td><td class="open">Open</td></tr>
+        <tr class="hh-start"><td>14</td><td class="hh">Shira and Lauren</td><td>Shira</td><td></td></tr>
+        <tr><td>15</td><td class="hh"></td><td>Lauren</td><td class="open">Open</td></tr>
+        <tr class="hh-start"><td>16</td><td class="hh">Susan</td><td>Susan</td><td class="open">Open</td></tr>
+        <tr class="hh-start"><td>17</td><td class="hh">Kids</td><td>Lilly</td><td></td></tr>
+        <tr><td>18</td><td class="hh"></td><td>Lucas</td><td></td></tr>
+        <tr><td>19</td><td class="hh"></td><td>Liam</td><td></td></tr>
+        <tr><td>20</td><td class="hh"></td><td>Hayden</td><td></td></tr>
+        <tr><td>21</td><td class="hh"></td><td>Noah</td><td></td></tr>
       </tbody>
     </table>
   </div>
