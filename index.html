@@ -69,11 +69,12 @@ tr:last-child td { border-bottom: 0; }
 .open { color: var(--muted); font-style: italic; }
 a { color: var(--accent); }
 details { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; margin: 10px 0; }
-summary { cursor: pointer; padding: 14px 16px; list-style: none; display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+summary { cursor: pointer; padding: 14px 16px; list-style: none; display: flex; gap: 16px; align-items: center; }
 summary::-webkit-details-marker { display: none; }
-summary::after { content: "+"; color: var(--muted); font-size: 1.2rem; }
+summary h3 { flex: 1; }
+summary::after { content: "+"; color: var(--muted); font-size: 1.2rem; width: 1em; text-align: center; }
 details[open] summary::after { content: "−"; }
-summary .who { color: var(--muted); font-size: .9rem; white-space: nowrap; }
+summary .who { color: var(--muted); font-size: .9rem; white-space: nowrap; min-width: 4.5em; text-align: right; }
 .body { padding: 0 16px 16px; }
 .body h4 { margin: 16px 0 6px; font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
 .body ul, .body ol { margin: 0; padding-left: 20px; }
@@ -145,10 +146,15 @@ footer { color: var(--muted); font-size: .85rem; margin-top: 56px; }
         <tr><td>14</td><td>Liam</td><td></td></tr>
         <tr><td>15</td><td>Hayden</td><td></td></tr>
         <tr><td>16</td><td>Noah</td><td></td></tr>
+        <tr><td>17</td><td>Matt</td><td></td></tr>
+        <tr><td>18</td><td>Gabe</td><td></td></tr>
+        <tr><td>19</td><td>Lisa</td><td></td></tr>
+        <tr><td>20</td><td>Mike (AKA Fish)</td><td></td></tr>
+        <tr><td>21</td><td>Kayla</td><td></td></tr>
       </tbody>
     </table>
   </div>
-  <p class="lede" style="margin-top:10px;font-size:.95rem">6 more guests to come, for 22 total.</p>
+  <p class="lede" style="margin-top:10px;font-size:.95rem">1 more guest to come, for 22 total.</p>
 
   <h2 id="recipes">Recipes</h2>
 
