@@ -298,6 +298,12 @@ footer { color: var(--muted); font-size: .85rem; margin-top: 56px; }
   <footer>Questions or changes? Text Cory.</footer>
 </main>
 <script>
+// Always open at the top, even if the link has a #section or the browser remembers a scroll position
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+addEventListener('load', () => {
+  if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+  scrollTo(0, 0);
+});
 let wasOpen = [];
 addEventListener('beforeprint', () => {
   const all = [...document.querySelectorAll('#recipes-section details')];
