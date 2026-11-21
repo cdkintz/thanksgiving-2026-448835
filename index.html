@@ -322,10 +322,12 @@ footer { color: var(--muted); font-size: .85rem; margin-top: 56px; }
 <script>
 // Always open at the top, even if the link has a #section or the browser remembers a scroll position
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-addEventListener('load', () => {
-  if (location.hash) history.replaceState(null, '', location.pathname + location.search);
-  scrollTo(0, 0);
-});
+if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+const toTop = () => { scrollTo(0, 0); document.documentElement.scrollTop = 0; document.body.scrollTop = 0; };
+toTop();
+addEventListener('DOMContentLoaded', toTop);
+addEventListener('load', () => { toTop(); setTimeout(toTop, 50); setTimeout(toTop, 300); });
+addEventListener('pageshow', toTop);
 let wasOpen = [];
 addEventListener('beforeprint', () => {
   const all = [...document.querySelectorAll('#recipes-section details')];
