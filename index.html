@@ -101,6 +101,7 @@ summary .who { color: var(--muted); font-size: .9rem; white-space: nowrap; min-w
   main { max-width: none; padding: 0; }
   main > *:not(#recipes-section) { display: none !important; }
   .print-btn, nav, summary::after { display: none !important; }
+  details.no-print { display: none !important; }
   #recipes-section { display: block !important; columns: 2; column-gap: 0.3in; }
   #recipes-section .recipes-head { display: none; }
   .print-title { display: block; column-span: all; font-weight: 600; font-size: 11pt; margin: 0 0 8px; }
@@ -153,6 +154,7 @@ footer { color: var(--muted); font-size: .85rem; margin-top: 56px; }
         <tr><td><a href="#r-veg">Roasted Brussels sprouts and green beans</a></td><td>Rachel</td><td><span class="tag no">No dairy</span></td><td></td></tr>
         <tr><td><a href="#r-salad">Winter green salad</a></td><td class="open">Open</td><td><span class="tag no">No dairy</span></td><td>Up for grabs</td></tr>
         <tr><td>Bread</td><td>Michael</td><td><span class="tag no">No dairy</span></td><td></td></tr>
+        <tr><td><a href="#r-butter">Whipped brown butter with cranberry swirl</a></td><td>Cory</td><td><span class="tag yes">Contains dairy</span></td><td>For the bread. Not kosher with the turkey; the bread itself stays plain.</td></tr>
         <tr><td>Pies</td><td>Natalie and Robin</td><td><span class="tag maybe">May contain dairy</span></td><td></td></tr>
         <tr><td>Apple pie</td><td>Lauren</td><td><span class="tag maybe">May contain dairy</span></td><td></td></tr>
         <tr><td>Vanilla ice cream</td><td>Cory</td><td><span class="tag yes">Contains dairy</span></td><td></td></tr>
@@ -307,7 +309,7 @@ footer { color: var(--muted); font-size: .85rem; margin-top: 56px; }
     </div>
   </details>
 
-  <details id="r-veg">
+  <details id="r-veg" class="no-print">
     <summary><h3>Roasted Brussels sprouts and green beans</h3><span class="who">Rachel</span></summary>
     <div class="body">
       <p>About 4 lb Brussels sprouts and 3 lb green beans. Olive oil, not butter, and no nut toppings.</p>
@@ -319,7 +321,28 @@ footer { color: var(--muted); font-size: .85rem; margin-top: 56px; }
     </div>
   </details>
 
-  <details id="r-salad">
+  <details id="r-butter">
+    <summary><h3>Whipped brown butter with cranberry swirl</h3><span class="who">Cory</span></summary>
+    <div class="body">
+      <p>Contains dairy. Make the butter Wednesday; top it Thursday.</p>
+      <h4>Ingredients</h4>
+      <ul>
+        <li>1 lb butter, softened (brown 4 tbsp of it first)</li>
+        <li>1/2 tsp brown miso, 1 tbsp honey, 1 tsp minced rosemary, zest of 1/2 orange, cracked pepper, pinch of salt</li>
+        <li>Optional: 2 to 3 tbsp whole milk</li>
+        <li>Topping: 1 cup cranberry sauce blended smooth with a pinch of salt; 8 to 10 sage leaves fried crisp; flaky salt</li>
+      </ul>
+      <h4>Method</h4>
+      <ol>
+        <li>Brown 4 tbsp butter until nutty; chill until soft-solid. Mash the miso smooth with a spoonful of butter.</li>
+        <li>Beat all the butter 6 to 8 minutes until pale and fluffy. Beat in the miso, honey, rosemary, zest, pepper, salt and milk.</li>
+        <li>Refrigerate overnight. Thursday, soften 1 hour and re-whip 30 seconds.</li>
+        <li>Spread in a shallow bowl, swirl the cooled cranberry on top, and finish with crispy sage, flaky salt and zest.</li>
+      </ol>
+    </div>
+  </details>
+
+  <details id="r-salad" class="no-print">
     <summary><h3>Winter green salad</h3><span class="who">Open</span></summary>
     <div class="body">
       <p>Dairy-free and nut-free.</p>
